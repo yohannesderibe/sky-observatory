@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-void: #0b0e14;
+  --color-cloudline: #1b2230;
+  --color-vapor: #c7d2de;
+  --color-haze: #7c8798;
+  --color-solar: #ff9b54;
+  --color-glacial: #5ec8d8;
+
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-void);
+  color: var(--color-vapor);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-solar);
+  color: var(--color-void);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-glacial);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes fall-rain {
+  from {
+    transform: translateY(-10vh);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+@keyframes fall-snow {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+  }
+  50% {
+    transform: translateY(50vh) translateX(12px);
+  }
+  100% {
+    transform: translateY(110vh) translateX(-8px);
+  }
+}
+
+@keyframes drift-cloud {
+  from {
+    transform: translateX(-10vw);
+  }
+  to {
+    transform: translateX(10vw);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
